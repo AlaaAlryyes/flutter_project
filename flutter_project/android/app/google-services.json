@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "242815971711",
+    "firebase_url": "https://medical-care-9b6d9-default-rtdb.firebaseio.com",
+    "project_id": "medical-care-9b6d9",
+    "storage_bucket": "medical-care-9b6d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242815971711:android:a183898d9cca34217aea4a",
+        "android_client_info": {
+          "package_name": "com.example.flutter_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242815971711-qnukpq9rqlv2qfijnc8vr5sb9s0s98ur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD94uX1cGnJNYEMbYlkyY4dTEqYzClEerk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242815971711-qnukpq9rqlv2qfijnc8vr5sb9s0s98ur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
