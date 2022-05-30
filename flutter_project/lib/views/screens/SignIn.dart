@@ -13,63 +13,67 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
           padding: const EdgeInsets.all(10),
-          child: ListView(
-            children: <Widget>[
-              Image.network(
-                "https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/2x/external-login-ui-and-ux-xnimrodx-lineal-gradient-xnimrodx.png",
-                width: 100,
-                height: 100,
-              ),
-              Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(10),
-                  child: const Text(
-                    'Sign in',
-                    style: TextStyle(fontSize: 20),
-                  )),
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: TextField(
-                  controller: nameController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'User Name',
+          child: FutureBuilder(
+            future:
+                registerAccount(emailController.text, passwordController.text),
+            builder: (context, snapshot) {
+              return ListView(
+                children: <Widget>[
+                  Image.network(
+                    "https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/2x/external-login-ui-and-ux-xnimrodx-lineal-gradient-xnimrodx.png",
+                    width: 100,
+                    height: 100,
                   ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: TextField(
-                  obscureText: true,
-                  controller: passwordController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Password',
-                  ),
-                ),
-              ),
-              Container(
-                child: IntlPhoneField(
-                  decoration: const InputDecoration(
-                    labelText: 'Phone Number',
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(),
+                  Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(10),
+                      child: const Text(
+                        'Sign in',
+                        style: TextStyle(fontSize: 20),
+                      )),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    child: TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'User Name',
+                      ),
                     ),
                   ),
-                  initialCountryCode: 'PS',
-                  onChanged: (phone) {},
-                ),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              ),
-              /*TextButton(
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextField(
+                      obscureText: true,
+                      controller: passwordController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                      ),
+                    ),
+                  ),
+                  Container(
+                    child: IntlPhoneField(
+                      decoration: const InputDecoration(
+                        labelText: 'Phone Number',
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(),
+                        ),
+                      ),
+                      initialCountryCode: 'PS',
+                      onChanged: (phone) {},
+                    ),
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 20),
+                  ),
+                  /*TextButton(
                 onPressed: () {
                   //forgot password screen
                 },
@@ -78,23 +82,27 @@ class _SignInState extends State<SignIn> {
                 ),
               ),*/
 
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                  height: 50,
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  child: ElevatedButton(
-                    child: const Text('Sign in'),
-                    onPressed: () async {
-                      if (nameController.text.isNotEmpty ||
-                          passwordController.text.isNotEmpty) {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: ((context) => Home())));
-                      } else {}
-                    },
-                  )),
-            ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                      height: 50,
+                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: ElevatedButton(
+                        child: const Text('Sign in'),
+                        onPressed: () async {
+                          if (nameController.text.isNotEmpty ||
+                              passwordController.text.isNotEmpty) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) => Home())));
+                          } else {}
+                        },
+                      )),
+                ],
+              );
+            },
           )),
     );
   }

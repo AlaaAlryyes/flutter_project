@@ -11,13 +11,13 @@ import 'package:flutter_project/views/screens/DoctorDetails.dart';
 import 'package:flutter_project/views/screens/Payment.dart';
 
 void main() async {
-  runApp(MaterialApp(
-    home: Login(),
-  ));
-
   /*runApp(MaterialApp(
-    home: SignIn(),
+    home: Login(),
   ));*/
+
+  runApp(MaterialApp(
+    home: SignIn(),
+  ));
 
 /*  runApp(MaterialApp(
     home: PhoneRegisteration(),
